@@ -1,4 +1,4 @@
 name = "santiago"
 age = "villa"
-complet = name + age
+complet = f"{name} {age}"
 print(complet)
