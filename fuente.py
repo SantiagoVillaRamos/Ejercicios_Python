@@ -13,6 +13,19 @@ class CadenaTexto:
 
     def a_mayusculas(self):
         return self._texto.upper()
+    
+    
+# clase que recorre la cadena de texto y verifica cuantas letras tiene y cuantas palabras tiene.
+class CadenaTexto2:
+    def __init__(self, texto):
+        self._texto = texto
+    
+    def contar_letras(self):
+        return sum(1 for char in self._texto if char.isalpha())
+
+    def contar_palabras(self):
+        return len(self._texto.split())
+
 
 # función principal que solicita al usuario que ingrese una cadena de texto y crea una instancia de la clase CadenaTexto con el texto ingresado. Si la cadena no cumple con las condiciones, se muestra un mensaje de error y se solicita al usuario que ingrese una nueva cadena. Si la cadena es válida, se muestra el texto ingresado y el texto en mayúsculas. El programa se ejecuta en un bucle hasta que se ingrese una cadena válida.
 def main():
@@ -22,6 +35,8 @@ def main():
             cadena = CadenaTexto(entrada)
             print("Texto ingresado:", cadena.texto)
             print("En mayúsculas:", cadena.a_mayusculas())
+            print("Cantidad de letras:", CadenaTexto2(entrada).contar_letras())
+            print("Cantidad de palabras:", CadenaTexto2(entrada).contar_palabras())
             break
         except ValueError as e:
             print(e)
