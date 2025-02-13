@@ -25,6 +25,16 @@ class CadenaTexto2:
 
     def contar_palabras(self):
         return len(self._texto.split())
+    
+
+# clase encargada de sumar dos numeros de contar letras y contar palabras
+class Suma:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+        
+    def suma_de_numeros(self):
+        return self.num1 + self.num2
 
 
 # función principal que solicita al usuario que ingrese una cadena de texto y crea una instancia de la clase CadenaTexto con el texto ingresado. Si la cadena no cumple con las condiciones, se muestra un mensaje de error y se solicita al usuario que ingrese una nueva cadena. Si la cadena es válida, se muestra el texto ingresado y el texto en mayúsculas. El programa se ejecuta en un bucle hasta que se ingrese una cadena válida.
@@ -37,6 +47,8 @@ def main():
             print("En mayúsculas:", cadena.a_mayusculas())
             print("Cantidad de letras:", CadenaTexto2(entrada).contar_letras())
             print("Cantidad de palabras:", CadenaTexto2(entrada).contar_palabras())
+            suma = Suma(CadenaTexto2(entrada).contar_letras(), CadenaTexto2(entrada).contar_palabras())
+            print(f"Suma de {CadenaTexto2(entrada).contar_letras()} y {CadenaTexto2(entrada).contar_palabras()}: {suma.suma_de_numeros()}")
             break
         except ValueError as e:
             print(e)
