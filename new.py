@@ -1,4 +1,8 @@
-name = "santiago"
-age = "villa"
-complet = f"{name} {age}"
-print(complet)
+
+def main():
+  new_list = []
+  text = input("Ingresa un texto: ")
+  new_list.append(text)
+
+if __name__ == "__main__":
+  main()
