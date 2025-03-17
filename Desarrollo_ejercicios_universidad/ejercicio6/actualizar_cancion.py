@@ -39,16 +39,16 @@ class ActualizarCancion(Actualizar):
                 'nombre_cancion_validada': nombre_cancion_validada
             }
             
-            actualizar = ActualizarYGuardar()
-            actualizar.actualizar(objeto, actualizar_cancion_playlist)
+            actualizar = CrearObjetoCancionActualizada()
+            actualizar.crear_objeto_cancion_actualizada(objeto, actualizar_cancion_playlist)
 
         else:
             print(f'\nLa cancion "{nombre_cancion_validada}" no existe en la base de datos')
             print(f'\nLa duracion total de las canciones es: {actualizar_cancion_playlist.duracion_total_de_cancion()} minutos')        
 
 
-class ActualizarYGuardar:
-    def actualizar(self, data, actualizar_cancion_playlist):
+class CrearObjetoCancionActualizada:
+    def crear_objeto_cancion_actualizada(self, data, actualizar_cancion_playlist):
         
         titulo_nuevo_cancion = data['titulo_nuevo_cancion']
         nombre_nuevo_artista = data['nombre_nuevo_artista']

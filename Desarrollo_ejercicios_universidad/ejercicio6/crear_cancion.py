@@ -29,12 +29,12 @@ class CrearCancionEnPlaylist(Crear):
             'numero_validado': numero_validado
         }
             
-        guardar_cancion_creada = GuardarCancionCreada()
-        guardar_cancion_creada.guardar_cancion(data, crear_cancion_playlist)    
+        guardar_cancion_creada = CrearObjetoCancion()
+        guardar_cancion_creada.crear_objeto_de_cancion(data, crear_cancion_playlist)    
 
 
-class GuardarCancionCreada:
-    def guardar_cancion(self, data, crear_cancion_playlist):
+class CrearObjetoCancion:
+    def crear_objeto_de_cancion(self, data, crear_cancion_playlist):
         
         titulo_de_cancion = data['titulo_de_cancion']
         nombre_artista = data['nombre_artista']
