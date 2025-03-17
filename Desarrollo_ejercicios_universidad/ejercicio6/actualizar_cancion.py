@@ -5,6 +5,11 @@ from lista_titulos_canciones import TitulosCanciones
 from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
 
 class ActualizarCancion(Actualizar):
+    
+    def __init__(self):
+        self.__objeto = None
+        self.__objeto_nombre_canciones = None
+    
     def actualizar_cancion(self, data):
         
         actualizar_cancion_playlist = data['playlist']
@@ -32,33 +37,22 @@ class ActualizarCancion(Actualizar):
             duracion_cancion.campo_formulario(validador_de_numero)
             numero_nuevo_validado = duracion_cancion.get_duracion()
             
-            objeto = {
-                'titulo_nuevo_cancion': titulo_nuevo_cancion,
-                'nombre_nuevo_artista': nombre_nuevo_artista,
-                'numero_nuevo_validado': numero_nuevo_validado,
-                'nombre_cancion_validada': nombre_cancion_validada
-            }
             
-            actualizar = CrearObjetoCancionActualizada()
-            actualizar.crear_objeto_cancion_actualizada(objeto, actualizar_cancion_playlist)
+            self.__objeto = {'titulo_nuevo_cancion': titulo_nuevo_cancion, 'nombre_nuevo_artista': nombre_nuevo_artista,'numero_nuevo_validado': numero_nuevo_validado,}
+            self.__objeto_nombre_canciones = {'nombre_cancion_validada': nombre_cancion_validada, 'titulo_nuevo_cancion': titulo_nuevo_cancion}
+
+            logica_actualizar_cancion = LogicaActualizarCancion()
+            logica_actualizar_cancion.actualizar_cancion(actualizar_cancion_playlist, self.get_objeto_cancion_actualizada(), self.get_objeto_nombre_canciones())
+            
 
         else:
             print(f'\nLa cancion "{nombre_cancion_validada}" no existe en la base de datos')
             print(f'\nLa duracion total de las canciones es: {actualizar_cancion_playlist.duracion_total_de_cancion()} minutos')        
 
 
-class CrearObjetoCancionActualizada:
-    def crear_objeto_cancion_actualizada(self, data, actualizar_cancion_playlist):
+    def get_objeto_cancion_actualizada(self):
+        return self.__objeto 
+    
+    def get_objeto_nombre_canciones(self):
+        return self.__objeto_nombre_canciones
         
-        titulo_nuevo_cancion = data['titulo_nuevo_cancion']
-        nombre_nuevo_artista = data['nombre_nuevo_artista']
-        numero_nuevo_validado =data['numero_nuevo_validado']
-        nombre_cancion_validada = data['nombre_cancion_validada']
-        
-        cancion_actualizada = {'titulo_de_cancion': titulo_nuevo_cancion, 'artista_cancion': nombre_nuevo_artista,'duracion_cancion': numero_nuevo_validado}
-        objeto = {
-            'titulo_nuevo_cancion': titulo_nuevo_cancion,
-            'nombre_cancion_validada': nombre_cancion_validada
-        }
-        logica_actualizar_cancion = LogicaActualizarCancion()
-        logica_actualizar_cancion.actualizar_cancion(actualizar_cancion_playlist, cancion_actualizada, objeto)

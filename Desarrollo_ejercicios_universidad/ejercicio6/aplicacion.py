@@ -31,7 +31,6 @@ class Aplicacion:
         
             lista_de_opciones = ListaOpciones()
             lista_de_opciones.lista_opciones()
-            print(playlist.get_canciones())
             
             formulario_opcion_usuario = FormularioOpcionUsuario()
             
