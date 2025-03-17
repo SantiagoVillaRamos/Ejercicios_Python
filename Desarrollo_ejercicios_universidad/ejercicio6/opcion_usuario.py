@@ -1,4 +1,6 @@
-from createDeleteUpdate import EliminarCancion, CrearCancionEnPlaylist, ActualizarCancion
+from crear_cancion import CrearCancionEnPlaylist
+from actualizar_cancion import ActualizarCancion
+from eliminar_cancion import EliminarCancion
 
 class OpcionUsuario:
     def opciones_usuario(self, opcion_usuario, playlist, objeto):

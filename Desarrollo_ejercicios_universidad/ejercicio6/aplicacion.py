@@ -12,6 +12,7 @@ from playlist import Playlist
 from formulario_opcion_usuario import FormularioOpcionUsuario
 from lista_opciones import ListaOpciones
 from opcion_usuario import OpcionUsuario
+
 # clase aplicacion
 class Aplicacion:
     
