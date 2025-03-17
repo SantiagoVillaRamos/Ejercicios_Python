@@ -1,7 +1,7 @@
-# clase que valida que la cadena no este vacia y no tenga numeros
+
 class ValidadorDeTexto:
     def __init__(self):
-        self.__texto = ''
+        self.__texto = '' 
         
     def validador_de_texto(self, texto):
         if not texto.strip():
@@ -11,16 +11,15 @@ class ValidadorDeTexto:
         self.__texto = texto
         return self.__texto
         
-    def get_nombre(self):
+    def get_texto(self):
         return self.__texto
 
 
-# clase que valida que el numero sea mayor a 0
 class ValidadorDeNumero:
     def __init__(self):
-        self.__numero = int()
+        self.__numero = None
         
-    def validador_numero(self, numero):
+    def validador_duracion_cancion(self, numero):
         if numero <= 0:
             raise ValueError(f'\nDuracion: "{numero}". Debe ser mayor a 0')
         elif numero > 7:
