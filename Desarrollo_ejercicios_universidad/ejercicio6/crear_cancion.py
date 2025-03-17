@@ -4,6 +4,10 @@ from logica import LogicaCrearCancion
                               
                               
 class CrearCancionEnPlaylist(Crear):
+    
+    def __init__(self):
+        self.__objeto = None
+    
     def crear_cancion(self, data):
         
         crear_cancion_playlist = data['playlist']
@@ -23,30 +27,13 @@ class CrearCancionEnPlaylist(Crear):
         duracion_cancion.campo_formulario(validador_de_numero)
         numero_validado = duracion_cancion.get_duracion()
         
-        data = {
-            'titulo_de_cancion': titulo_de_cancion,
-            'nombre_artista': nombre_artista,
-            'numero_validado': numero_validado
-        }
-            
-        guardar_cancion_creada = CrearObjetoCancion()
-        guardar_cancion_creada.crear_objeto_de_cancion(data, crear_cancion_playlist)    
-
-
-class CrearObjetoCancion:
-    def crear_objeto_de_cancion(self, data, crear_cancion_playlist):
+        self.__objeto = {'titulo_de_cancion': titulo_de_cancion, 'nombre_artista': nombre_artista,'duracion_cancion': numero_validado}
         
-        titulo_de_cancion = data['titulo_de_cancion']
-        nombre_artista = data['nombre_artista']
-        numero_validado = data['numero_validado']
-        
-        cancion = {'titulo_de_cancion': titulo_de_cancion, 'artista_cancion': nombre_artista, 'duracion_cancion': numero_validado}
-        
+         
         logica_crear_cancion = LogicaCrearCancion()
-        logica_crear_cancion.crear_cancion(crear_cancion_playlist, cancion, titulo_de_cancion)
+        logica_crear_cancion.crear_cancion(crear_cancion_playlist, self.get_objeto_cancion(), titulo_de_cancion)    
 
-        
-
-
-
+    
+    def get_objeto_cancion(self):
+        return self.__objeto
            

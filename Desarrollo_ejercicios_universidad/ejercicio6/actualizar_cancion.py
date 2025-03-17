@@ -4,9 +4,6 @@ from logica import LogicaActualizarCancion
 from lista_titulos_canciones import TitulosCanciones
 from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
 
-
-
-
 class ActualizarCancion(Actualizar):
     
     def __init__(self):
@@ -41,7 +38,7 @@ class ActualizarCancion(Actualizar):
             numero_nuevo_validado = duracion_cancion.get_duracion()
             
             
-            self.__objeto = {'titulo_nuevo_cancion': titulo_nuevo_cancion, 'nombre_nuevo_artista': nombre_nuevo_artista,'numero_nuevo_validado': numero_nuevo_validado,}
+            self.__objeto = {'titulo_de_cancion': titulo_nuevo_cancion, 'nombre_artista': nombre_nuevo_artista,'duracion_cancion': numero_nuevo_validado,}
             self.__objeto_nombre_canciones = {'nombre_cancion_validada': nombre_cancion_validada, 'titulo_nuevo_cancion': titulo_nuevo_cancion}
 
             logica_actualizar_cancion = LogicaActualizarCancion()
