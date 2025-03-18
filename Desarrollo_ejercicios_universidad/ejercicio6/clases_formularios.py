@@ -67,3 +67,25 @@ class DuracionCancion(CampoFormulario):
         
     def get_duracion(self):
         return self.__duracion
+    
+    
+class SalirDelPrograma(CampoFormulario):
+    def __init__(self):
+        self.__Salir_del_programa = None
+    
+    def campo_formulario(self, data):
+        validar_texto = data
+        while True:
+            try:
+                salir = input('\n¿Estas seguro de salir ? (si/no): ')
+                salir_del_programa = validar_texto.validador_de_texto(salir)
+                if salir_del_programa:
+                    print(f'Titulo "{validar_texto.get_texto()}" valido')
+                    self.__Salir_del_programa = salir_del_programa
+                    break
+            except ValueError as e:
+                print(e)
+                print('\t---Por favor, intenta de nuevo.---')
+                
+    def get_salir(self):
+        return self.__Salir_del_programa

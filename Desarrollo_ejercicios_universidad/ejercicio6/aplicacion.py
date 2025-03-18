@@ -21,7 +21,6 @@ class Aplicacion:
         validar_texto = ValidadorDeTexto()
         validador_numero = ValidadorDeNumero()
         objeto =  {
-            'playlist':playlist,
             'validar_texto': validar_texto,
             'validador_numero': validador_numero
         }
@@ -34,10 +33,9 @@ class Aplicacion:
             formulario_opcion_usuario = FormularioOpcionUsuario()
             opciones_usuario = OpcionUsuario()
             
-            if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto) == 4:
-                break  
-
-
+            if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto):
+                break
+                 
 # se llama la clase aplicacion que iniciara el programa
 if __name__ == '__main__':
     Aplicacion.main()
