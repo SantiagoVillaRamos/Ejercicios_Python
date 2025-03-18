@@ -14,7 +14,6 @@ class CrearCancionEnPlaylist(Crear):
         validar_texto = data['validar_texto']
         validador_de_numero = data['validador_numero']
         
-        
         titulo_cancion = TituloCancion()
         titulo_cancion.campo_formulario(validar_texto)
         titulo_de_cancion = titulo_cancion.get_titulo_cancion()
@@ -29,7 +28,6 @@ class CrearCancionEnPlaylist(Crear):
         
         self.__objeto = {'titulo_de_cancion': titulo_de_cancion, 'nombre_artista': nombre_artista,'duracion_cancion': numero_validado}
         
-         
         logica_crear_cancion = LogicaCrearCancion()
         logica_crear_cancion.crear_cancion(crear_cancion_playlist, self.get_objeto_cancion(), titulo_de_cancion)    
 

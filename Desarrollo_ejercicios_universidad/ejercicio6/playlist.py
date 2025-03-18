@@ -1,5 +1,6 @@
 # clase playlist.
 class Playlist:
+    
     def __init__(self):
         self.__canciones = []
     

@@ -13,7 +13,6 @@ from formulario_opcion_usuario import FormularioOpcionUsuario
 from lista_opciones import ListaOpciones
 from opcion_usuario import OpcionUsuario
 
-# clase aplicacion
 class Aplicacion:
     
     def main():
@@ -33,12 +32,12 @@ class Aplicacion:
             lista_de_opciones.lista_opciones()
             
             formulario_opcion_usuario = FormularioOpcionUsuario()
-            
             opciones_usuario = OpcionUsuario()
+            
             if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto) == 4:
                 break  
 
 
-# se llama a la clase aplicacion
+# se llama la clase aplicacion que iniciara el programa
 if __name__ == '__main__':
     Aplicacion.main()
