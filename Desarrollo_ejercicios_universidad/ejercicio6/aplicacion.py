@@ -18,11 +18,9 @@ class AplicacionCancion:
     def main():
         
         playlist = Playlist()
-        validar_texto = ValidadorDeTexto()
-        validar_numero = ValidadorDeNumero()
         objeto_validadores =  {
-            'validar_texto': validar_texto,
-            'validador_numero': validar_numero
+            'validar_texto': ValidadorDeTexto(),
+            'validador_numero': ValidadorDeNumero()
         }
         
         while True:
