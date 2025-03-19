@@ -1,7 +1,7 @@
 from crear_cancion import CrearCancion
 from actualizar_cancion import ActualizarCancion
 from eliminar_cancion import EliminarCancion
-from mostrar_duracion_total import MostrarDuracionTotal
+from mostrar_duracion_total import SalirDelPrograma
 
 # clase principal que maneja las opciones del usuario
 class OpcionesUsuario:
@@ -11,7 +11,7 @@ class OpcionesUsuario:
             1:CrearCancion(),
             2:EliminarCancion(),
             3:ActualizarCancion(),
-            4:MostrarDuracionTotal(),
+            4:SalirDelPrograma(),
         }
     
     def opciones_usuario(self, opcion_usuario, playlist, objeto_validadores):

@@ -2,12 +2,12 @@
 from interfaz import Opcion, EjecutarOpcion
 from clases_formularios import FormularioSalirDelPrograma
 
-class MostrarDuracionTotal(Opcion):
+class SalirDelPrograma(Opcion):
     
     def __init__(self):
         self.opciones_usuario = {
-            'si':OpcionSi(),
-            'no':OpcionNo(),
+            'si':MostrarDuracionTotal(),
+            'no':ContinuarConElPrograma(),
         }
     
     def ejecutar(self, playlist, objeto_validadores):
@@ -24,12 +24,12 @@ class MostrarDuracionTotal(Opcion):
             print('\n-Opcion no valida')
     
     
-class OpcionSi(EjecutarOpcion):
+class MostrarDuracionTotal(EjecutarOpcion):
     def ejecutar_opcion(self, playlist):
         print(f'\n--Gracias por participar. Duracion de las canciones "{playlist.duracion_total_de_cancion()}"--')
         exit()
 
 
-class OpcionNo(EjecutarOpcion):
+class ContinuarConElPrograma(EjecutarOpcion):
     def ejecutar_opcion(self, playlist):
         print(f'\nDuracion de las canciones "{playlist.duracion_total_de_cancion()}"')
