@@ -1,5 +1,5 @@
-class ListaOpciones:
-    def lista_opciones(self):
+class ListaOpcionesAplicacion:
+    def lista_opciones_aplicacion(self):
         lista_opciones = ['Agregar cancion', 'Eliminar cancion', 'Actualizar cancion', 'Salir']
         print('\nSelecciona una opcion:')
         

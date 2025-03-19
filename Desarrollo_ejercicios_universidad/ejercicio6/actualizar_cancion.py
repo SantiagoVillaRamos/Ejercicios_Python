@@ -6,12 +6,12 @@ from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
 class ActualizarCancion(Opcion):
     
     def __init__(self):
-        self.__objeto = None
+        self.__objeto_cancion_actualizada = None
         self.__objeto_nombre_canciones = None
     
-    def ejecutar(self, playlist, objeto):
-        validar_texto = objeto['validar_texto']
-        validador_de_numero = objeto['validador_numero']
+    def ejecutar(self, playlist, objeto_validadores):
+        validar_texto = objeto_validadores['validar_texto']
+        validador_de_numero = objeto_validadores['validador_numero']
         
         titulo_cancion = TituloCancion()
         titulo_cancion.campo_formulario(validar_texto)
@@ -23,38 +23,38 @@ class ActualizarCancion(Opcion):
             
             titulo_nuevo_de_cancion = TituloCancion()
             titulo_nuevo_de_cancion.campo_formulario(validar_texto)
-            titulo_nuevo_cancion = titulo_nuevo_de_cancion.get_titulo_cancion()
+            titulo_cancion_validado = titulo_nuevo_de_cancion.get_titulo_cancion()
                     
             nombre_del_artista = ArtistaCancion()
             nombre_del_artista.campo_formulario(validar_texto)
-            nombre_nuevo_artista = nombre_del_artista.get_nombre_artista()
+            nombre_artista_validado = nombre_del_artista.get_nombre_artista()
                     
             duracion_cancion = DuracionCancion()
             duracion_cancion.campo_formulario(validador_de_numero)
-            numero_nuevo_validado = duracion_cancion.get_duracion()
+            duracion_cancion_validado = duracion_cancion.get_duracion()
             
-            self.__objeto = {'titulo_de_cancion': titulo_nuevo_cancion, 'nombre_artista': nombre_nuevo_artista,'duracion_cancion': numero_nuevo_validado,}
-            self.__objeto_nombre_canciones = {'nombre_cancion_validada': nombre_cancion_validada, 'titulo_nuevo_cancion': titulo_nuevo_cancion}
+            self.__objeto_cancion_actualizada = {'titulo_de_cancion': titulo_cancion_validado, 'nombre_artista': nombre_artista_validado,'duracion_cancion': duracion_cancion_validado,}
+            self.__objeto_nombre_canciones = {'nombre_cancion_validada': nombre_cancion_validada, 'titulo_nuevo_cancion': titulo_cancion_validado}
 
-            logica_actualizar_cancion = LogicaActualizarCancion()
-            logica_actualizar_cancion.actualizar_cancion(playlist, self.get_objeto_cancion_actualizada(), self.get_objeto_nombre_canciones())
+            imprimir_mensajes = ImprimirMensajes()
+            imprimir_mensajes.imprimir_mensajes(playlist, self.get_objeto_cancion_actualizada(), self.get_objeto_nombres_canciones())
         else:
             print(f'\nLa cancion "{nombre_cancion_validada}" no existe en la base de datos')
             print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')        
 
     def get_objeto_cancion_actualizada(self):
-        return self.__objeto 
+        return self.__objeto_cancion_actualizada 
     
-    def get_objeto_nombre_canciones(self):
+    def get_objeto_nombres_canciones(self):
         return self.__objeto_nombre_canciones
 
 
-class LogicaActualizarCancion:
-    def actualizar_cancion(self, actualizar_cancion_playlist, cancion_actualizada, objeto):
+class ImprimirMensajes:
+    def imprimir_mensajes(self, playlist, objeto_cancion_actualizada, objeto_nombres_canciones):
         
-        nombre_cancion_validada = objeto['nombre_cancion_validada']
-        titulo_nuevo_cancion = objeto['titulo_nuevo_cancion']
+        nombre_cancion_validada = objeto_nombres_canciones['nombre_cancion_validada']
+        titulo_nuevo_cancion = objeto_nombres_canciones['titulo_nuevo_cancion']
         
-        if actualizar_cancion_playlist.actualizar_cancion(nombre_cancion_validada, cancion_actualizada):         
+        if playlist.actualizar_cancion(nombre_cancion_validada, objeto_cancion_actualizada):         
             print(f'\nLa cancion "{nombre_cancion_validada}" se actualizo a "{titulo_nuevo_cancion}" ')
-            print(f'\nLa duracion total de las canciones es: {actualizar_cancion_playlist.duracion_total_de_cancion()} minutos')
+            print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')

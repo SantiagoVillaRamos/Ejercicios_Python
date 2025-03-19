@@ -8,11 +8,11 @@ class CampoFormulario(ABC):
     
 class Opcion(ABC):
     @abstractmethod
-    def ejecutar(self, playlist, objeto):
+    def ejecutar(self, playlist, objeto_validadores):
         pass
     
     
 class EjecutarOpcion(ABC):
     @abstractmethod
-    def ejecutar_opcion(self, data):
+    def ejecutar_opcion(self, playlist):
         pass

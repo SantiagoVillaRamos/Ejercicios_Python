@@ -69,7 +69,7 @@ class DuracionCancion(CampoFormulario):
         return self.__duracion
     
     
-class SalirDelPrograma(CampoFormulario):
+class FormularioSalirDelPrograma(CampoFormulario):
     def __init__(self):
         self.__Salir_del_programa = None
     

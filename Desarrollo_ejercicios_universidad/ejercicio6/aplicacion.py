@@ -10,32 +10,32 @@
 from validadores import ValidadorDeTexto, ValidadorDeNumero
 from playlist import Playlist
 from formulario_opcion_usuario import FormularioOpcionUsuario
-from lista_opciones import ListaOpciones
-from opcion_usuario import OpcionUsuario
+from lista_opciones import ListaOpcionesAplicacion
+from opcion_usuario import OpcionesUsuario
 
-class Aplicacion:
+class AplicacionCancion:
     
     def main():
         
         playlist = Playlist()
         validar_texto = ValidadorDeTexto()
-        validador_numero = ValidadorDeNumero()
-        objeto =  {
+        validar_numero = ValidadorDeNumero()
+        objeto_validadores =  {
             'validar_texto': validar_texto,
-            'validador_numero': validador_numero
+            'validador_numero': validar_numero
         }
         
         while True:
         
-            lista_de_opciones = ListaOpciones()
-            lista_de_opciones.lista_opciones()
+            lista_de_opciones = ListaOpcionesAplicacion()
+            lista_de_opciones.lista_opciones_aplicacion()
             
             formulario_opcion_usuario = FormularioOpcionUsuario()
-            opciones_usuario = OpcionUsuario()
+            opciones_usuario = OpcionesUsuario()
             
-            if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto):
+            if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto_validadores):
                 break
                  
 # se llama la clase aplicacion que iniciara el programa
 if __name__ == '__main__':
-    Aplicacion.main()
+    AplicacionCancion.main()
