@@ -1,23 +1,6 @@
-from abc import ABC, abstractmethod
 
-class AlmacenamientoCanciones(ABC):
-    
-    @abstractmethod
-    def agregar_canciones(self, data):
-        pass
-    
-    @abstractmethod
-    def actualizar_cancion(self, nombre_cancion, nueva_info):
-        pass
-    
-    @abstractmethod
-    def eliminar_cancion(self, data):
-        pass
-    
-    @abstractmethod
-    def duracion_total_de_cancion(self):
-        pass
-    
+from interfaz import AlmacenamientoCanciones
+
 class AlmacenamientoEnLista(AlmacenamientoCanciones):
     
     def __init__(self):
