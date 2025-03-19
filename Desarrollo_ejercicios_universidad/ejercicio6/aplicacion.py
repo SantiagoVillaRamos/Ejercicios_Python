@@ -8,7 +8,7 @@
 
 
 from validadores import ValidadorDeTexto, ValidadorDeNumero
-from playlist import Playlist
+from playlist import Playlist, AlmacenamientoEnLista
 from formulario_opcion_usuario import FormularioOpcionUsuario
 from lista_opciones import ListaOpcionesAplicacion
 from opcion_usuario import OpcionesUsuario
@@ -17,7 +17,8 @@ class AplicacionCancion:
     
     def main():
         
-        playlist = Playlist()
+        almacenamiento_en_lista = AlmacenamientoEnLista()
+        playlist = Playlist(almacenamiento_en_lista)
         objeto_validadores =  {
             'validar_texto': ValidadorDeTexto(),
             'validador_numero': ValidadorDeNumero()
