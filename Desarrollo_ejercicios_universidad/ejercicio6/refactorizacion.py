@@ -2,7 +2,7 @@ from interfaz import Opcion, RealizarAccion
 from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
 from ejecutar_accion import EjecutarAccion
 
-    
+"""falta refactorizar esta clase y utilizarla con otras clases, porque esta es la clase de negocio"""
 class Formulario:
     def __init__(self, valores):
         self.valores = valores
@@ -19,6 +19,7 @@ class Formulario:
         for valor in self.valores:
             if valor in self.respuestas:
                 self.respuestas[valor].campo_formulario(validadores)
+                self.__datos[valor] = self.respuestas[valor].get_valor()
         else:
             print('\n-Opción no válida')
 
