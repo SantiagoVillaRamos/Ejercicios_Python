@@ -3,13 +3,14 @@ from actualizar_cancion import ActualizarCancion
 from eliminar_cancion import EliminarCancion
 from mostrar_duracion_total import SalirDelPrograma
 from interfaz import RealizarAccion
+from refactorizacion import Crear
 
 # clase principal que maneja las opciones del usuario
 class OpcionUsuario(RealizarAccion):
     # Mapeo de opciones a clases
     def __init__(self):
         self.opciones_de_usuario = {
-            1:CrearCancion(),
+            1:Crear(),
             2:EliminarCancion(),
             3:ActualizarCancion(),
             4:SalirDelPrograma(),

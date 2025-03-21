@@ -6,9 +6,9 @@ class TituloCancion(CampoFormulario):
         self.__titulo_cancion = None
     
     def campo_formulario(self, data):
-        validar_texto = data
+        validar_texto = data['validar_texto']
         while True:
-            try:
+            try: 
                 titulo_de_cancion = input('\nIngresa el titulo de la cancion: ')
                 titulo_cancion = validar_texto.validador_de_texto(titulo_de_cancion)
                 if titulo_cancion:
@@ -19,7 +19,7 @@ class TituloCancion(CampoFormulario):
                 print(e)
                 print('\t---Por favor, intenta de nuevo.---')
                 
-    def get_titulo_cancion(self):
+    def get_valor(self):
         return self.__titulo_cancion
     
     
@@ -28,7 +28,7 @@ class ArtistaCancion(CampoFormulario):
         self.__nombre_artista = None
     
     def campo_formulario(self, data):
-        validar_texto = data
+        validar_texto = data['validar_texto']
         while True:
             try:
                 artista_de_cancion = input('\nIngresa el artista de la cancion: ')   
@@ -41,7 +41,7 @@ class ArtistaCancion(CampoFormulario):
                 print(e)
                 print('\t---Por favor, intenta de nuevo.---')
                    
-    def get_nombre_artista(self):
+    def get_valor(self):
         return self.__nombre_artista
     
     
@@ -50,7 +50,7 @@ class DuracionCancion(CampoFormulario):
         self.__duracion = None
     
     def campo_formulario(self, data):
-        validador_de_numero = data
+        validador_de_numero = data['validador_numero']
         while True:
             try:
                 duracion_de_cancion = int(input('\nIngresa la duracion de la cancion: '))
@@ -65,7 +65,7 @@ class DuracionCancion(CampoFormulario):
                 print(e)
                 print('\t---Por favor, intenta de nuevo.---')
         
-    def get_duracion(self):
+    def get_valor(self):
         return self.__duracion
     
     
@@ -74,7 +74,7 @@ class FormularioSalirDelPrograma(CampoFormulario):
         self.__Salir_del_programa = None
     
     def campo_formulario(self, data):
-        validar_texto = data
+        validar_texto = data['validar_texto']
         while True:
             try:
                 salir = input('\n¿Estas seguro de salir ? (si/no): ')
@@ -87,5 +87,5 @@ class FormularioSalirDelPrograma(CampoFormulario):
                 print(e)
                 print('\t---Por favor, intenta de nuevo.---')
                 
-    def get_salir(self):
+    def get_valor(self):
         return self.__Salir_del_programa

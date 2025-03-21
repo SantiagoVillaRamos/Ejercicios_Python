@@ -15,7 +15,7 @@ class CrearCancion(Opcion):
         titulo_cancion = TituloCancion()
         titulo_cancion.campo_formulario(validar_texto)
         titulo_de_cancion = titulo_cancion.get_titulo_cancion()
-            
+             
         nombre_del_artista = ArtistaCancion()
         nombre_del_artista.campo_formulario(validar_texto)
         nombre_artista = nombre_del_artista.get_nombre_artista()

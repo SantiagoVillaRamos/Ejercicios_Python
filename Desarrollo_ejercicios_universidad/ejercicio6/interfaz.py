@@ -6,6 +6,10 @@ class CampoFormulario(ABC):
     def campo_formulario(self, data):
         pass
     
+    @abstractmethod
+    def get_valor(self):
+        pass
+    
 class Opcion(ABC):
     @abstractmethod
     def ejecutar(self, playlist, objeto_validadores):

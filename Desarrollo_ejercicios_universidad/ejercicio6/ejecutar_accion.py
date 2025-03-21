@@ -7,3 +7,4 @@ class EjecutarAccion:
         
     def ejecutar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         self.__accion.realizar_accion(accion_objeto_uno, accion_objeto_dos, accion_objeto_tres)
+ 
