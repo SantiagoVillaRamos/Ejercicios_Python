@@ -1,5 +1,6 @@
 
-from interfaz import Opcion
+from interfaz import Opcion, RealizarAccion
+from ejecutar_accion import EjecutarAccion
 from lista_titulos_canciones import TitulosCanciones
 from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
 
@@ -36,8 +37,10 @@ class ActualizarCancion(Opcion):
             self.__objeto_cancion_actualizada = {'titulo_de_cancion': titulo_cancion_validado, 'nombre_artista': nombre_artista_validado,'duracion_cancion': duracion_cancion_validado,}
             self.__objeto_nombre_canciones = {'nombre_cancion_validada': nombre_cancion_validada, 'titulo_nuevo_cancion': titulo_cancion_validado}
 
-            imprimir_mensajes = ImprimirMensajes()
-            imprimir_mensajes.imprimir_mensajes(playlist, self.get_objeto_cancion_actualizada(), self.get_objeto_nombres_canciones())
+            # inyeccion de dependencias para ejecutar la accion de actualizar la cancion en la playlist
+            guardar_en_playlist = ActualizarCancionEnPlaylist()
+            actualizar_en_playlist = EjecutarAccion(guardar_en_playlist)
+            actualizar_en_playlist.ejecutar_accion(playlist, self.get_objeto_cancion_actualizada(), self.get_objeto_nombres_canciones())
         else:
             print(f'\nLa cancion "{nombre_cancion_validada}" no existe en la base de datos')
             print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')        
@@ -49,12 +52,13 @@ class ActualizarCancion(Opcion):
         return self.__objeto_nombre_canciones
 
 
-class ImprimirMensajes:
-    def imprimir_mensajes(self, playlist, objeto_cancion_actualizada, objeto_nombres_canciones):
+class ActualizarCancionEnPlaylist(RealizarAccion):
+    
+    def realizar_accion(self,  playlist, objeto_cancion, objeto_titulo):
         
-        nombre_cancion_validada = objeto_nombres_canciones['nombre_cancion_validada']
-        titulo_nuevo_cancion = objeto_nombres_canciones['titulo_nuevo_cancion']
+        nombre_cancion_validada = objeto_titulo['nombre_cancion_validada']
+        titulo_nuevo_cancion = objeto_titulo['titulo_nuevo_cancion']
         
-        if playlist.actualizar_cancion(nombre_cancion_validada, objeto_cancion_actualizada):         
+        if playlist.actualizar_cancion(nombre_cancion_validada, objeto_cancion):         
             print(f'\nLa cancion "{nombre_cancion_validada}" se actualizo a "{titulo_nuevo_cancion}" ')
             print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')

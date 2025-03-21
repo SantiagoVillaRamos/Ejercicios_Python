@@ -42,3 +42,10 @@ class OpcinesUsuario(ABC):
     @abstractmethod
     def opciones_usuario(self, opcion_usuario, playlist, objeto_validadores):
         pass
+    
+
+class RealizarAccion(ABC):
+    
+    @abstractmethod
+    def realizar_accion(self, playlist, objeto_cancion, objeto_titulo):
+        pass

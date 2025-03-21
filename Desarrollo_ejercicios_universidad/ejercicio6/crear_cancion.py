@@ -1,6 +1,7 @@
-from interfaz import Opcion
+from interfaz import Opcion, RealizarAccion
 from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
-    
+from ejecutar_accion import EjecutarAccion
+
 class CrearCancion(Opcion):
     
     def __init__(self):
@@ -25,18 +26,21 @@ class CrearCancion(Opcion):
         
         self.__objeto_cancion = {'titulo_de_cancion': titulo_de_cancion, 'nombre_artista': nombre_artista,'duracion_cancion': duracion_de_cancion}
         
-        imprimir_mensajes = ImprimirMensajes()
-        imprimir_mensajes.imprimir_mensajes(playlist, self.get_objeto_cancion(), titulo_de_cancion)
+        # inyeccion de dependencias para ejecutar la accion de agregar la cancion en la playlist    
+        agregar_cancion = AgregarCancion()
+        ejecutar_accion_agregar_cancion = EjecutarAccion(agregar_cancion)
+        ejecutar_accion_agregar_cancion.ejecutar_accion(playlist, self.get_objeto_cancion(), titulo_de_cancion)
         
     def get_objeto_cancion(self):
         return self.__objeto_cancion
+     
  
- 
-class ImprimirMensajes:
-    def imprimir_mensajes(self, playlist, objeto_cancion, titulo_de_cancion):
+class AgregarCancion(RealizarAccion):
+    
+    def realizar_accion(self, playlist, objeto_cancion, objeto_titulo):
         
         if playlist.agrear_cancion(objeto_cancion):
-            print(f'\nLa Cancion "{titulo_de_cancion}" se guardo')
+            print(f'\nLa Cancion "{objeto_titulo}" se guardo')
         else:
             print(f'\nNo se guardo')
         
