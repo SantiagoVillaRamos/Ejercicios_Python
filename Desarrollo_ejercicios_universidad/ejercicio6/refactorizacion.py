@@ -16,12 +16,9 @@ class Formulario:
     def preguntar(self, validadores):
         
         # Verificar si todas las claves de respuestas están en la lista de valores
-        if all(clave in self.valores for clave in self.respuestas.keys()):
-            # Preguntar al usuario por cada atributo
-            for clave, instancia in self.respuestas.items():
-                print(f"\nPreguntando por: {clave}")
-                instancia.campo_formulario(validadores)
-                self.__datos[clave] = instancia.get_valor()
+        for valor in self.valores:
+            if valor in self.respuestas:
+                self.respuestas[valor].campo_formulario(validadores)
         else:
             print('\n-Opción no válida')
 
