@@ -11,7 +11,7 @@ from validadores import ValidadorDeTexto, ValidadorDeNumero
 from playlist import Playlist, AlmacenamientoEnLista
 from formulario_opcion_usuario import FormularioOpcionUsuario
 from lista_opciones import ListaOpcionesAplicacion
-from opcion_usuario import OpcionesUsuario
+from opcion_usuario import Opcion, OpcionUsuario
 
 class AplicacionCancion:
     
@@ -30,9 +30,10 @@ class AplicacionCancion:
             lista_de_opciones.lista_opciones_aplicacion()
             
             formulario_opcion_usuario = FormularioOpcionUsuario()
-            opciones_usuario = OpcionesUsuario()
+            opcion_usuario = OpcionUsuario()
+            opciones_usuario = Opcion(opcion_usuario)
             
-            if opciones_usuario.opciones_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto_validadores):
+            if opciones_usuario.ejecutar_opcion_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto_validadores):
                 break
                  
 # se llama la clase aplicacion que iniciara el programa

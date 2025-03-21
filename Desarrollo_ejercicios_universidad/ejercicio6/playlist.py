@@ -34,7 +34,8 @@ class AlmacenamientoEnLista(AlmacenamientoCanciones):
         return self.__canciones
         
 
-# clase playlist.
+# clase negocio que maneja las operaciones de la playlist
+# se encarga de agregar, actualizar, eliminar y calcular la duracion total de las canciones
 class Playlist:
 
     def __init__(self, almacenamiento: AlmacenamientoCanciones):

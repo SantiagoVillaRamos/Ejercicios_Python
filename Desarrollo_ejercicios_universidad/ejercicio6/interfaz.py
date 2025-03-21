@@ -35,3 +35,10 @@ class AlmacenamientoCanciones(ABC):
     @abstractmethod
     def duracion_total_de_cancion(self):
         pass
+    
+    
+class OpcinesUsuario(ABC):
+    
+    @abstractmethod
+    def opciones_usuario(self, opcion_usuario, playlist, objeto_validadores):
+        pass
