@@ -37,12 +37,12 @@ class CrearCancion(Opcion):
  
 class AgregarCancion(RealizarAccion):
     
-    def realizar_accion(self, playlist, objeto_cancion, objeto_titulo):
+    def realizar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         
-        if playlist.agrear_cancion(objeto_cancion):
-            print(f'\nLa Cancion "{objeto_titulo}" se guardo')
+        if accion_objeto_uno.agrear_cancion(accion_objeto_dos):
+            print(f'\nLa Cancion "{accion_objeto_tres}" se guardo')
         else:
             print(f'\nNo se guardo')
         
-        print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')
+        print(f'\nLa duracion total de las canciones es: {accion_objeto_uno.duracion_total_de_cancion()} minutos')
                               

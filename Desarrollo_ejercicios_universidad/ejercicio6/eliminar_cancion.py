@@ -35,11 +35,11 @@ class EliminarCancionEnPlaylist:
 
 class ImprimirMensajeEliminarCancionEnPlaylist(RealizarAccion):
     
-    def realizar_accion(self, playlist, objeto_cancion, objeto_titulo):
+    def realizar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         
-        if objeto_cancion != objeto_titulo:
-            print(f'\n---La cancion "{objeto_titulo}" ha sido eliminada de la lista')
-            print(f'\n-La duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos-')
+        if accion_objeto_dos != accion_objeto_tres:
+            print(f'\n---La cancion "{accion_objeto_tres}" ha sido eliminada de la lista')
+            print(f'\n-La duracion total de las canciones es: {accion_objeto_uno.duracion_total_de_cancion()} minutos-')
         else:
-            print(f'\nLa cancion "{objeto_titulo}"  no se encuentra en la lista---')
-            print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')
+            print(f'\nLa cancion "{accion_objeto_tres}"  no se encuentra en la lista---')
+            print(f'\nLa duracion total de las canciones es: {accion_objeto_uno.duracion_total_de_cancion()} minutos')

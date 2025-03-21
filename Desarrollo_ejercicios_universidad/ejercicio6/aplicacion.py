@@ -11,12 +11,13 @@ from validadores import ValidadorDeTexto, ValidadorDeNumero
 from playlist import Playlist, AlmacenamientoEnLista
 from formulario_opcion_usuario import FormularioOpcionUsuario
 from lista_opciones import ListaOpcionesAplicacion
-from opcion_usuario import Opcion, OpcionUsuario
+from opcion_usuario import OpcionUsuario
+from ejecutar_accion import EjecutarAccion
 
 class AplicacionCancion:
     
     def main():
-        
+        # inyeccion de dependencias para la playlist
         almacenamiento_en_lista = AlmacenamientoEnLista()
         playlist = Playlist(almacenamiento_en_lista)
         objeto_validadores =  {
@@ -30,10 +31,11 @@ class AplicacionCancion:
             lista_de_opciones.lista_opciones_aplicacion()
             
             formulario_opcion_usuario = FormularioOpcionUsuario()
+            # inyeccion de dependencias para la opcion del usuario  
             opcion_usuario = OpcionUsuario()
-            opciones_usuario = Opcion(opcion_usuario)
+            opciones_usuario = EjecutarAccion(opcion_usuario)
             
-            if opciones_usuario.ejecutar_opcion_usuario(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto_validadores):
+            if opciones_usuario.ejecutar_accion(formulario_opcion_usuario.formulario_opcion_usuario(), playlist, objeto_validadores):
                 break
                  
 # se llama la clase aplicacion que iniciara el programa

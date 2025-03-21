@@ -2,10 +2,10 @@ from crear_cancion import CrearCancion
 from actualizar_cancion import ActualizarCancion
 from eliminar_cancion import EliminarCancion
 from mostrar_duracion_total import SalirDelPrograma
-from interfaz import OpcinesUsuario
+from interfaz import RealizarAccion
 
 # clase principal que maneja las opciones del usuario
-class OpcionUsuario(OpcinesUsuario):
+class OpcionUsuario(RealizarAccion):
     # Mapeo de opciones a clases
     def __init__(self):
         self.opciones_de_usuario = {
@@ -15,19 +15,11 @@ class OpcionUsuario(OpcinesUsuario):
             4:SalirDelPrograma(),
         }
     
-    def opciones_usuario(self, opcion_usuario, playlist, objeto_validadores):
+    def realizar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         
-        opcion = self.opciones_de_usuario.get(opcion_usuario)
+        opcion = self.opciones_de_usuario.get(accion_objeto_uno)
         
         if opcion:
-            opcion.ejecutar(playlist, objeto_validadores)
+            opcion.ejecutar(accion_objeto_dos, accion_objeto_tres)
         else:
             print('\n-Opcion no valida')
-        
-# clase Opcion que ejecuta la opcion del usuario    
-class Opcion:
-    def __init__(self, opcion_usuario: OpcinesUsuario):
-        self.opcion_usuario = opcion_usuario
-    
-    def ejecutar_opcion_usuario(self, opcion_usuario, playlist, objeto_validadores):
-        self.opcion_usuario.opciones_usuario(opcion_usuario, playlist, objeto_validadores)

@@ -54,11 +54,11 @@ class ActualizarCancion(Opcion):
 
 class ActualizarCancionEnPlaylist(RealizarAccion):
     
-    def realizar_accion(self,  playlist, objeto_cancion, objeto_titulo):
+    def realizar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         
-        nombre_cancion_validada = objeto_titulo['nombre_cancion_validada']
-        titulo_nuevo_cancion = objeto_titulo['titulo_nuevo_cancion']
+        nombre_cancion_validada = accion_objeto_tres['nombre_cancion_validada']
+        titulo_nuevo_cancion = accion_objeto_tres['titulo_nuevo_cancion']
         
-        if playlist.actualizar_cancion(nombre_cancion_validada, objeto_cancion):         
+        if accion_objeto_uno.actualizar_cancion(nombre_cancion_validada, accion_objeto_dos):         
             print(f'\nLa cancion "{nombre_cancion_validada}" se actualizo a "{titulo_nuevo_cancion}" ')
-            print(f'\nLa duracion total de las canciones es: {playlist.duracion_total_de_cancion()} minutos')
+            print(f'\nLa duracion total de las canciones es: {accion_objeto_uno.duracion_total_de_cancion()} minutos')
