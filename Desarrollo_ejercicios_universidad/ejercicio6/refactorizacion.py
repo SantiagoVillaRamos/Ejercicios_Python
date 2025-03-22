@@ -1,31 +1,7 @@
 from interfaz import Opcion, RealizarAccion
-from clases_formularios import TituloCancion, ArtistaCancion, DuracionCancion
-from ejecutar_accion import EjecutarAccion
+from ejecutar_accion import EjecutarAccion, RealizarAccionOpcionPrograma
+from logica_formulario import Formulario
 
-"""falta refactorizar esta clase y utilizarla con otras clases, porque esta es la clase de negocio"""
-class Formulario:
-    def __init__(self, valores):
-        self.valores = valores
-        self.respuestas = {
-            'titulo_cancion':TituloCancion(),
-            'nombre_artista':ArtistaCancion(),
-            'duracion_cancion':DuracionCancion()
-        }
-        self.__datos = {}
-    
-    def preguntar(self, validadores):
-        
-        # Verificar si todas las claves de respuestas están en la lista de valores
-        for valor in self.valores:
-            if valor in self.respuestas:
-                self.respuestas[valor].campo_formulario(validadores)
-                self.__datos[valor] = self.respuestas[valor].get_valor()
-        else:
-            print('\n-Opción no válida')
-
-    def get_datos(self):
-        return self.__datos
-    
 
 class Crear(Opcion):
     
@@ -33,7 +9,8 @@ class Crear(Opcion):
         
         lista_opciones_usuario = ['titulo_cancion', 'nombre_artista', 'duracion_cancion']
         formulario = Formulario(lista_opciones_usuario)
-        formulario.preguntar(objeto_validadores)
+        realizar_accion_opcion = RealizarAccionOpcionPrograma(formulario)
+        realizar_accion_opcion.realizar_accion(objeto_validadores)
         cancion_creada = formulario.get_datos()
         
         # inyeccion de dependencias para ejecutar la accion de agregar la cancion en la playlist    

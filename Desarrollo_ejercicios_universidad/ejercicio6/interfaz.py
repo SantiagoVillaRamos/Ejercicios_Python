@@ -47,3 +47,10 @@ class RealizarAccion(ABC):
     @abstractmethod
     def realizar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         pass 
+    
+    
+class RealizarAccionOpcion(ABC):
+    
+    @abstractmethod
+    def pregruntar(self, dato):
+        pass

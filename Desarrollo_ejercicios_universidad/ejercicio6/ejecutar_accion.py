@@ -1,4 +1,4 @@
-from interfaz import RealizarAccion
+from interfaz import RealizarAccion, RealizarAccionOpcion
 
 class EjecutarAccion:
     
@@ -8,3 +8,12 @@ class EjecutarAccion:
     def ejecutar_accion(self, accion_objeto_uno, accion_objeto_dos, accion_objeto_tres):
         self.__accion.realizar_accion(accion_objeto_uno, accion_objeto_dos, accion_objeto_tres)
  
+ 
+class RealizarAccionOpcionPrograma:
+    
+    def __init__(self, accion: RealizarAccionOpcion):
+        self.__accion = accion
+    
+    def realizar_accion(self, accion):
+        self.__accion.preguntar(accion)
+        
