@@ -3,7 +3,7 @@ from ejecutar_accion import EjecutarAccion, RealizarAccionOpcionPrograma
 from logica_formulario import Formulario
 
 
-class Crear(Opcion):
+class CrearCancion(Opcion):
     
     def ejecutar(self, playlist, objeto_validadores):
         
@@ -11,7 +11,7 @@ class Crear(Opcion):
         formulario = Formulario(lista_opciones_usuario)
         realizar_accion_opcion = RealizarAccionOpcionPrograma(formulario)
         realizar_accion_opcion.realizar_accion(objeto_validadores)
-        cancion_creada = formulario.get_datos()
+        cancion_creada = realizar_accion_opcion.get_datos()
         
         # inyeccion de dependencias para ejecutar la accion de agregar la cancion en la playlist    
         agregar_cancion = AgregarCancion()
