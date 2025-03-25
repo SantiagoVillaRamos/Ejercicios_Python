@@ -7,6 +7,7 @@ class CrearCancion(Opcion):
     
     def ejecutar(self, playlist, objeto_validadores):
         
+        """Corregir la inyeccion de dependencias"""
         lista_opciones_usuario = ['titulo_cancion', 'nombre_artista', 'duracion_cancion']
         formulario = Formulario(lista_opciones_usuario)
         realizar_accion_opcion = RealizarAccionOpcionPrograma(formulario)
